@@ -1,0 +1,33 @@
+﻿@using TripGuide.Models.Class
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Blog List</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Detail</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Title</td>
+    <td><a href="/Admin/BlogDelete/@item.Id" class="btn btn-danger">Delete</a></td>
+    <td><a href="/Admin/BlogFind/@item.Id" class="btn btn-warning ">Update</a></td>
+    <td><a href="#" class="btn btn-light">Detail</a></td>
+
+</tr>
+    }
+</table>
+<a href="/Admin/NewBlog/" class="btn btn-primary">New Blog</a>
+
